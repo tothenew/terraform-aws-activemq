@@ -1,3 +1,9 @@
+variable "name" {
+  type        = string
+  description = "A string value to describe prefix of all the resources"
+  default     = ""
+}
+
 variable "broker_name" {
   description = "The name of the MQ broker"
   type        = string
@@ -43,6 +49,15 @@ variable "common_tags" {
   type        = map(string)
   description = "A map to add common tags to all the resources"
   default     = {}
+}
+
+variable "default_tags" {
+  type        = map(string)
+  description = "A map to add common tags to all the resources"
+  default = {
+    "Scope" : "ActiveMQ"
+    "CreatedBy" : "Terraform"
+  }
 }
 
 variable "active_mq_sg_name" {
