@@ -36,7 +36,7 @@ module "mq_broker {
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_active-mq"></a> [active\_mq](#module\_active\_mq) | ./module/active-mq
+| <a name="module_active-mq"></a> [active\_mq](#module\_active\_mq) | ./module/active-mq | n/a |
 
 ## Resources
 
