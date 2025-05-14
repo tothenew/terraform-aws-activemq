@@ -6,12 +6,7 @@ variable "vpc_id" {
 variable "cidr_blocks" {
   type        = list(string)
   description = "A list of CIDR block ID's to allow access"
-}
-
-variable "name" {
-  type        = string
-  description = "A string value to describe prefix of all the resources"
-  default     = "non-prod-generic"
+  default     = ["10.0.0.0/16"]
 }
 
 variable "broker_name" {
@@ -33,12 +28,14 @@ variable "username" {
   description = "MQ broker username"
   type        = string
   sensitive   = true
+  default     = "test"
 }
 
 variable "password" {
   description = "MQ broker password"
   type        = string
   sensitive   = true
+  default     = "7vhgG0F7J8SNA1E0"
 }
 
 variable "engine_version" {
@@ -63,18 +60,19 @@ variable "publicly_accessible" {
 variable "active_mq_sg_name" {
   description = "The name of the MQ security group"
   type        = string
+  default     = "active-mq-sg"
 }
 
 variable "from_port" {
   description = "security groups from port"
   type        = number
-  default     = 0
+  default     = 61616
 }
 
 variable "to_port" {
   description = "security groups to port"
   type        = number
-  default     = 65535
+  default     = 61616
 }
 
 variable "common_tags" {
