@@ -1,3 +1,9 @@
+variable "name" {
+  type        = string
+  description = "A string value to describe prefix of all the resources"
+  default     = "non-prod-generic"
+}
+
 variable "vpc_id" {
   type        = string
   description = "VPC ID"
