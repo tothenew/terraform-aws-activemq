@@ -3,7 +3,7 @@ module "mq_broker" {
   broker_name                = var.broker_name
   instance_type              = var.instance_type
   security_groups            = [aws_security_group.active-mq_sg.id]
-  subnet_ids                 = [data.aws_subnets.private.ids[0]]
+  subnet_ids                 = var.subnet_ids
   mq_username                = var.username
   mq_password                = var.password
   engine_version             = var.engine_version

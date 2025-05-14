@@ -1,7 +1,17 @@
+variable "vpc_id" {
+  type        = string
+  description = "VPC ID"
+}
+
+variable "cidr_blocks" {
+  type        = list(string)
+  description = "A list of CIDR block ID's to allow access"
+}
+
 variable "name" {
   type        = string
   description = "A string value to describe prefix of all the resources"
-  default     = ""
+  default     = "non-prod-generic"
 }
 
 variable "broker_name" {
@@ -11,8 +21,12 @@ variable "broker_name" {
 
 variable "instance_type" {
   description = "The instance type for the MQ broker"
-  default     = "mq.t3.micro"
   type        = string
+}
+
+variable "subnet_ids" {
+  description = "list of VPC subnets for activeMQ"
+  type        = list(string)
 }
 
 variable "username" {
@@ -29,7 +43,7 @@ variable "password" {
 
 variable "engine_version" {
   description = "Engine version of the MQ broker"
-  default     = "5.18.4"
+  default     = "5.17.6"
   type        = string
 }
 
@@ -45,20 +59,6 @@ variable "publicly_accessible" {
   default     = false
 }
 
-variable "common_tags" {
-  type        = map(string)
-  description = "A map to add common tags to all the resources"
-  default     = {}
-}
-
-variable "default_tags" {
-  type        = map(string)
-  description = "A map to add common tags to all the resources"
-  default = {
-    "Scope" : "ActiveMQ"
-    "CreatedBy" : "Terraform"
-  }
-}
 
 variable "active_mq_sg_name" {
   description = "The name of the MQ security group"
@@ -75,4 +75,19 @@ variable "to_port" {
   description = "security groups to port"
   type        = number
   default     = 65535
+}
+
+variable "common_tags" {
+  type        = map(string)
+  description = "A map to add common tags to all the resources"
+  default     = {}
+}
+
+variable "default_tags" {
+  type        = map(string)
+  description = "A map to add common tags to all the resources"
+  default = {
+    "Scope" : "ActiveMQ"
+    "CreatedBy" : "Terraform"
+  }
 }
