@@ -80,7 +80,11 @@ variable "to_port" {
 variable "common_tags" {
   type        = map(string)
   description = "A map to add common tags to all the resources"
-  default     = {}
+  default     = {
+    "Project"     = "Internal"
+    "Environment" = "Dev"
+    "ManagedBy"   = "Terraform"
+  }
 }
 
 variable "default_tags" {

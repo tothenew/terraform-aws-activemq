@@ -1,16 +1,23 @@
-# terraform-aws-template
+# terraform-aws-activemq
 
-[![Lint Status](https://github.com/tothenew/terraform-aws-template/workflows/Lint/badge.svg)](https://github.com/tothenew/terraform-aws-template/actions)
-[![LICENSE](https://img.shields.io/github/license/tothenew/terraform-aws-template)](https://github.com/tothenew/terraform-aws-template/blob/master/LICENSE)
+[![Lint Status](https://github.com/tothenew/terraform-aws-activemq/workflows/Lint/badge.svg)](https://github.com/tothenew/terraform-aws-activemq/actions)
+[![LICENSE](https://img.shields.io/github/license/tothenew/terraform-aws-activemq)](https://github.com/tothenew/terraform-aws-activemq/blob/master/LICENSE)
 
-This is a template to use for baseline. The default actions will provide updates for section bitween Requirements and Outputs.
+This module provisions and configures Amazon MQ for ActiveMQ, enabling secure and scalable message brokering within a region.
 
-The following content needed to be created and managed:
- - Introduction
-     - Explaination of module 
-     - Intended users
- - Resource created and managed by this module
- - Example Usages
+The following resources will be created:
+- Brokers
+- Configurations
+
+## Usages
+```
+module "mq_broker {
+  source                     = "./module/active-mq"
+  broker_name                = "test-broker
+  instance_type              = "mq.t3.micro"
+  subnet_ids                 = ["subnet-123456789"]
+}
+```
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -21,24 +28,32 @@ The following content needed to be created and managed:
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_active-mq"></a> [active\_mq](#module\_active\_mq) | ./module/active-mq
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
 
 ## Outputs
 
-No outputs.
-<!-- END_TF_DOCS -->
+| Name | Description |
+|------|-------------|
+
 
 ## Authors
 
@@ -46,4 +61,4 @@ Module managed by [TO THE NEW Pvt. Ltd.](https://github.com/tothenew)
 
 ## License
 
-Apache 2 Licensed. See [LICENSE](https://github.com/tothenew/terraform-aws-template/blob/main/LICENSE) for full details.
+Apache 2 Licensed. See [LICENSE](https://github.com/tothenew/terraform-aws-activemq/blob/main/LICENSE) for full details.
